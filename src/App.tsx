@@ -27,4 +27,4 @@ function App() {
 
 export default App;
 
-// 6 + 14 + 4 + 4
+// 6 + 14 + 4 + 4 + 6
