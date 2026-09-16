@@ -1,16 +1,17 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import useGames from "../hooks/useGames";
+import useGames, { type Platform } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import type { Genre } from "../hooks/useGenre";
 
 interface Props {
-  selectedGenre : Genre | null
+  selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-const GameGrid = ({selectedGenre} : Props) => {
-  let { data, error, isLoading } = useGames(selectedGenre);
+const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+  let { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
   let skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
@@ -22,15 +23,17 @@ const GameGrid = ({selectedGenre} : Props) => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <GameCardContainer key={skeleton}  >
+            <GameCardContainer key={skeleton}>
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
+
         {data.map((g) => (
-          <GameCardContainer key={g.id} >
+          <GameCardContainer key={g.id}>
             <GameCard game={g} key={g.id} />
           </GameCardContainer>
         ))}
+        {data.length === 0 && <Text>No games found for this platform</Text>}
       </SimpleGrid>
     </>
   );
