@@ -4,6 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import image from "../assets/no-image-placeholder-6f3882e0.webp";
+import Emoji from "./Emoji";
 interface Props {
   game: Game;
 }
@@ -21,6 +22,7 @@ function GameCard(props: Props) {
           <CriticScore score={game.metacritic}></CriticScore>
         </HStack>
         <Heading fontSize="2xl">{game.name}</Heading>
+        <Emoji rating={game.rating_top} />
       </CardBody>
     </Card>
   );
