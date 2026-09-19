@@ -4,7 +4,7 @@ import useData from "../hooks/useData";
 
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void;
-  sortOrder: string;
+  sortOrder: string | null;
 }
 
 function SortSelector({ onSelectSortOrder, sortOrder }: Props) {
