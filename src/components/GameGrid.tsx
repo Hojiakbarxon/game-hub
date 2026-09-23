@@ -7,35 +7,33 @@ import type { Genre } from "../hooks/useGenre";
 import type { GameQuery } from "../App";
 
 interface Props {
-  gameQuery : GameQuery
+  gameQuery: GameQuery;
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
   let { data, error, isLoading } = useGames(gameQuery);
   let skeletons = [1, 2, 3, 4, 5, 6];
+  if (error) return <Text>{error}</Text>;
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        padding="10px"
-        spacing={6}
-      >
-        {isLoading &&
-          skeletons.map((skeleton) => (
-            <GameCardContainer key={skeleton}>
-              <GameCardSkeleton />
-            </GameCardContainer>
-          ))}
-
-        {data.map((g) => (
-          <GameCardContainer key={g.id}>
-            <GameCard game={g} key={g.id} />
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      padding="10px"
+      spacing={6}
+    >
+      {isLoading &&
+        skeletons.map((skeleton) => (
+          <GameCardContainer key={skeleton}>
+            <GameCardSkeleton />
           </GameCardContainer>
         ))}
-        {data.length === 0 && <Text>No games found for this platform</Text>}
-      </SimpleGrid>
-    </>
+
+      {data.map((g) => (
+        <GameCardContainer key={g.id}>
+          <GameCard game={g} key={g.id} />
+        </GameCardContainer>
+      ))}
+      {data.length === 0 && <Text>No games found for this platform</Text>}
+    </SimpleGrid>
   );
 };
 
