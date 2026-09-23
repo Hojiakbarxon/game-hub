@@ -54,7 +54,11 @@ function App() {
       paddingX={5}
     >
       <GridItem area="nav">
-        <NavBar onSearch={onSearch} />
+        <NavBar
+          onSearch={onSearch}
+          onSelectGenre={onSelectGenre}
+          selectedGenre={gameQuery.genre}
+        />
       </GridItem>
 
       <Show above="lg">
