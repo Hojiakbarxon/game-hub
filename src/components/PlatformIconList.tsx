@@ -1,5 +1,5 @@
 import { HStack, Icon } from "@chakra-ui/react";
-import type { Platform } from "../hooks/useGames";
+import type { Platform } from "../hooks/usePlatform";
 import type { IconType } from "react-icons/lib";
 import {
   FaAndroid,
