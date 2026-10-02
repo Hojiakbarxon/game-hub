@@ -15,7 +15,7 @@ function usePlatform() {
         queryKey: ['platforms'],
         queryFn: apiClient.getAllData,
         staleTime: 24 * 60 * 60 * 1000,//1d,
-        initialData: { results: platforms, count: platforms.length }
+        initialData: { results: platforms, count: platforms.length, next : null }
     })
 }
 

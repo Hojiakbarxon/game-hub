@@ -19,10 +19,10 @@ import type { Genre } from "../hooks/useGenre";
 interface Props {
   onSearch: (searchText: string) => void;
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const NavBar = ({ onSearch, onSelectGenre, selectedGenre }: Props) => {
+const NavBar = ({ onSearch, onSelectGenre, selectedGenreId }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -50,7 +50,7 @@ const NavBar = ({ onSearch, onSelectGenre, selectedGenre }: Props) => {
                 onSelectGenre(genre);
                 onClose();
               }}
-              selectedGenre={selectedGenre}
+              selectedGenreId={selectedGenreId}
             />
           </DrawerBody>
         </DrawerContent>
