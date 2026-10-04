@@ -14,7 +14,7 @@ import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 import GenreList from "./GenreList";
-import type { Genre } from "../hooks/useGenre";
+import type { Genre } from "../hooks/useGenres";
 
 interface Props {
   onSearch: (searchText: string) => void;

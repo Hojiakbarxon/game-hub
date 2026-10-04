@@ -2,7 +2,7 @@ import { APIClient } from "../services/api-client";
 import type { FetchReponse } from "../services/api-client";
 import type { GameQuery } from "../App";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import type { Platform } from "./usePlatform";
+import type { Platform } from "./usePlatforms";
 
 let apiClient = new APIClient<Game>('games');
 
