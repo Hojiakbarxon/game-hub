@@ -1,5 +1,5 @@
+import type Platform from "../entities/Platform";
 import usePlatforms from "./usePlatforms";
-import { type Platform } from "../entities/Platform";
 
 function usePlatform(id?: number): Platform | null {
     let { data: platforms } = usePlatforms();

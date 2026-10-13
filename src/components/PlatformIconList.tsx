@@ -1,5 +1,4 @@
 import { HStack, Icon } from "@chakra-ui/react";
-import type { Platform } from "../entities/Platform";
 import type { IconType } from "react-icons/lib";
 import {
   FaAndroid,
@@ -12,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
+import type Platform from "../entities/Platform";
 
 interface Props {
   platforms: Platform[];

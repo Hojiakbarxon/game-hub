@@ -1,4 +1,4 @@
-import type { Genre } from "../entities/Genre";
+import type Genre from "../entities/Genre";
 import useGenres from "./useGenres";
 
 function useGenre(id?: number): Genre | null {
