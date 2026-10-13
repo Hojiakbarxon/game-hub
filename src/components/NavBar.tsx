@@ -1,22 +1,14 @@
 import {
+  Box,
   HStack,
   Image,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
-  useDisclosure,
 } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
-import GenreList from "./GenreList";
 import { Link, Navigate } from "react-router-dom";
 
 const NavBar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -25,7 +17,7 @@ const NavBar = () => {
           <Image
             src={logo}
             boxSize="60px"
-            objectFit="cover"
+            objectFit="contain"
             cursor="pointer"
           />
         </Link>
