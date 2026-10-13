@@ -1,0 +1,14 @@
+import { useQuery } from "@tanstack/react-query";
+import { APIClient } from "../services/api-client";
+import type { Game } from "./useGames";
+
+let apiClient = new APIClient<Game>('games')
+
+function useGame(slug : string){
+    return useQuery({
+        queryKey : ['games', slug],
+        queryFn : () => apiClient.get(slug) 
+    })
+}
+
+export default useGame;
