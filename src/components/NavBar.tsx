@@ -13,6 +13,7 @@ import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 import GenreList from "./GenreList";
+import { Link, Navigate } from "react-router-dom";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -20,27 +21,17 @@ const NavBar = () => {
   return (
     <>
       <HStack paddingY="10px">
-        <Image
-          src={logo}
-          boxSize="60px"
-          objectFit="contain"
-          cursor="pointer"
-          onClick={onOpen}
-        />
+        <Link to={"/"}>
+          <Image
+            src={logo}
+            boxSize="60px"
+            objectFit="cover"
+            cursor="pointer"
+          />
+        </Link>
         <SearchInput />
         <ColorModeSwitch />
       </HStack>
-
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Genres</DrawerHeader>
-          <DrawerBody>
-            <GenreList />
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
     </>
   );
 };
